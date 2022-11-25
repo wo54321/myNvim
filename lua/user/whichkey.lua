@@ -89,11 +89,8 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  ["F"] = { "<cmd>Telescope find_files<cr>", "Find files", },
+  ["f"] = { "<cmd>lua require('telescope.builtin').live_grep({default_text=vim.fn.expand(\"<cword>\")})<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
   p = {
@@ -180,6 +177,12 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+  
+  h = {
+    name = "Hop",
+    w = { "<cmd>HopWord<cr>", "Hop Word" },
+    c = { "<cmd>HopChar1<cr>", "Hop Char1" },
   },
 }
 
